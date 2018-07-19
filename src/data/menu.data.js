@@ -2,7 +2,7 @@ const coffeeMenuData = {
   coffees: [
     {
       id: 1,
-      title: 'Cappuccino',
+      title: 'Flat White',
       subOptions: {
         optionTypeName: 'Cups',
         options: [

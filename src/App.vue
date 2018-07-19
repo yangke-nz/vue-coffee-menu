@@ -2,7 +2,7 @@
   <div id="app">
     <main>
       <CoffeeMenu />
-      <shoppingCart />
+      <!-- <shoppingCart /> -->
     </main>
   </div>
 </template>
@@ -10,17 +10,32 @@
 <script>
 // import HomePage from './components/HomePage.vue';
 import CoffeeMenu from './components/CoffeeMenu.vue';
-import ShoppingCart from './components/ShoppingCart.vue';
+// import ShoppingCart from './components/ShoppingCart.vue';
 
 export default {
   name: 'app',
   components: {
     CoffeeMenu,
-    ShoppingCart,
+    // ShoppingCart,
   },
 };
 </script>
 
+<style lang="scss">
+@import '~bulma/bulma';
+// $fa-font-path: "~font-awesome/fonts";
+// @import '~font-awesome/scss/font-awesome';
+
+// $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+    $fa-font-path : "~@fortawesome/fontawesome-free-webfonts/webfonts";
+    @import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
+    @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+    @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
+    @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
+
+</style>
 
 <style>
 body {
