@@ -28,11 +28,11 @@ export default [
     },
   },
 
-  // Config files at the repo root run in Node.
+  // Root config files and build scripts run in Node.
   {
-    files: ['*.js'],
+    files: ['*.js', 'scripts/**/*.js'],
     languageOptions: {
-      globals: { process: 'readonly' },
+      globals: { process: 'readonly', console: 'readonly', Buffer: 'readonly' },
     },
   },
 
