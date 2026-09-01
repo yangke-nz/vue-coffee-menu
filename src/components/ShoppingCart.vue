@@ -8,15 +8,20 @@
         <th>Qty</th>
         <th>SubTotal</th>
       </thead>
-      <tbody v-for="(order, index) in cart" :key="index">
-        <td>{{order.name}}</td>
-        <td>{{order.price}}</td>
-        <td>{{order.qty}}</td>
-        <td>{{order.qty*order.price}}</td>
+      <tbody
+        v-for="(order, index) in cart"
+        :key="index"
+      >
+        <td>{{ order.name }}</td>
+        <td>{{ order.price }}</td>
+        <td>{{ order.qty }}</td>
+        <td>{{ order.qty*order.price }}</td>
       </tbody>
       <tfoot>
-        <td colspan="3">Total</td>
-        <td>{{total}}</td>
+        <td colspan="3">
+          Total
+        </td>
+        <td>{{ total }}</td>
       </tfoot>
     </table>
 
@@ -37,7 +42,7 @@ export default {
       cart: 'cart',
     }),
     total() {
-      return this.cart.map(x => x.price * x.qty).reduce((x, y) => x + y);
+      return this.cart.map(x => x.price * x.qty).reduce((x, y) => x + y, 0);
     },
     // cart() {
     //   // return this.$store.state.cart;

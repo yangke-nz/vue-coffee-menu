@@ -2,44 +2,26 @@
   <div id="app">
     <main>
       <CoffeeMenu />
-      <!-- <shoppingCart /> -->
     </main>
   </div>
 </template>
 
 <script>
-// import HomePage from './components/HomePage.vue';
 import CoffeeMenu from './components/CoffeeMenu.vue';
-// import ShoppingCart from './components/ShoppingCart.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     CoffeeMenu,
-    // ShoppingCart,
   },
 };
 </script>
 
-<style lang="scss">
-@import '~bulma/bulma';
-// $fa-font-path: "~font-awesome/fonts";
-// @import '~font-awesome/scss/font-awesome';
-
-// $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
-// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-
-    $fa-font-path : "~@fortawesome/fontawesome-free-webfonts/webfonts";
-    @import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
-    @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
-    @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
-    @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
-
-</style>
-
 <style>
+/* Bulma is imported as prebuilt CSS in main.js -- this app overrides none of
+   its Sass variables, so there is nothing here to compile. */
 body {
-  background: linear-gradient(to botton, #555, #999);
+  background: linear-gradient(to bottom, #555, #999);
   background-attachment: fixed;
 }
 #app {
