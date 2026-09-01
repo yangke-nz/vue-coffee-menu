@@ -8,15 +8,46 @@
 [![Bulma](https://img.shields.io/badge/Bulma-1.0-00D1B2?style=flat-square&logo=bulma&logoColor=white)](https://bulma.io/)
 
 [![License](https://img.shields.io/badge/license-ISC-blue?style=flat-square)](https://opensource.org/license/isc-license-txt)
+[![Last commit](https://img.shields.io/github/last-commit/yangke-nz/vue-coffee-menu?style=flat-square)](https://github.com/yangke-nz/vue-coffee-menu/commits/master)
 [![Code size](https://img.shields.io/github/languages/code-size/yangke-nz/vue-coffee-menu?style=flat-square)](https://github.com/yangke-nz/vue-coffee-menu)
 
-A simple vuex demo
+A small coffee ordering app that shows how state works in Vue.
+
+Pick a coffee, pick a size, add it to the cart. The panel on the left is a live
+state inspector, so you can watch what happens as you click.
 
 ![Screenshot](screenshots/screenshot01.png)
 
-## Installation
+## What it shows
+
+The inspector separates state into four tiers:
+
+1. **Component state** - `selectedMainOpt` and `selectedSubOpt`, which live in
+   one component's `data()` and are private to it.
+2. **Derived state** - the `selectedCoffee` computed, rebuilt from tier 1
+   whenever it changes.
+3. **Store state** - `$store.state`, shared by every component. The cart table
+   reads the same object, so it repaints on its own.
+4. **Mutations** - a log of each commit, captured with `store.subscribe()`.
+
+The mutation log also names what each commit did. `addToCart` has two branches:
+it either adds a new line to the cart or bumps the quantity on one already
+there. Add the same coffee twice to see both.
+
+## Getting started
 
 ```sh
 npm install
-npm run serve
+npm run dev
 ```
+
+Then open <http://localhost:8080>.
+
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server (`npm run serve` works too) |
+| `npm run build` | Build for production into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Check the code with ESLint |

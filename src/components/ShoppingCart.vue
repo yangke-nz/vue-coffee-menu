@@ -1,34 +1,48 @@
-
 <template>
   <div>
-    <table class="table is-hoverable">
+    <table class="table is-hoverable is-fullwidth">
       <thead>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Qty</th>
-        <th>SubTotal</th>
+        <tr>
+          <th>Name</th>
+          <th class="num">
+            Price
+          </th>
+          <th class="num">
+            Qty
+          </th>
+          <th class="num">
+            SubTotal
+          </th>
+        </tr>
       </thead>
-      <tbody
-        v-for="(order, index) in cart"
-        :key="index"
-      >
-        <td>{{ order.name }}</td>
-        <td>{{ order.price }}</td>
-        <td>{{ order.qty }}</td>
-        <td>{{ order.qty*order.price }}</td>
+      <tbody>
+        <tr
+          v-for="(order, index) in cart"
+          :key="index"
+        >
+          <td>{{ order.name }}</td>
+          <td class="num">
+            {{ money(order.price) }}
+          </td>
+          <td class="num">
+            {{ order.qty }}
+          </td>
+          <td class="num">
+            {{ money(order.qty * order.price) }}
+          </td>
+        </tr>
       </tbody>
       <tfoot>
-        <td colspan="3">
-          Total
-        </td>
-        <td>{{ total }}</td>
+        <tr>
+          <td colspan="3">
+            Total
+          </td>
+          <td class="num">
+            {{ money(total) }}
+          </td>
+        </tr>
       </tfoot>
     </table>
-
-    <!-- <h1>cart</h1>
-    <div v-for="(order, index) in cart" :key="index">
-      {{order}}
-    </div> -->
   </div>
 </template>
 
@@ -44,10 +58,24 @@ export default {
     total() {
       return this.cart.map(x => x.price * x.qty).reduce((x, y) => x + y, 0);
     },
-    // cart() {
-    //   // return this.$store.state.cart;
-    //   return this.$store.getters.cart;
-    // },
+  },
+  methods: {
+    // Prices are dollars; show them as such rather than as bare numbers.
+    money(value) {
+      return `$${Number(value).toFixed(2)}`;
+    },
   },
 };
 </script>
+
+<style scoped>
+/* Figures line up on the decimal point instead of drifting left. */
+.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+tfoot td {
+  font-weight: 600;
+}
+</style>

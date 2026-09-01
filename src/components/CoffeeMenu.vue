@@ -3,9 +3,11 @@
     <div class="columns">
       <div class="column">
         <div class="box">
-          <p class="title">
-            css graphics<br> to be added...
-          </p>
+          <StateInspector
+            :main-option="selectedMainOpt"
+            :sub-option="selectedSubOpt"
+            :computed-order="selectedCoffee"
+          />
         </div>
       </div>
       <div class="column is-6">
@@ -80,11 +82,13 @@
 import { mapMutations } from 'vuex';
 import menu from '../data/menu.data';
 import ShoppingCart from '../components/ShoppingCart.vue';
+import StateInspector from '../components/StateInspector.vue';
 
 export default {
   name: 'CoffeeMenu',
   components: {
     ShoppingCart,
+    StateInspector,
   },
   data() {
     return {

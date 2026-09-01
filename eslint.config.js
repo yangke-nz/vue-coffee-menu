@@ -9,7 +9,9 @@ export default [
   { ignores: ['dist/**', 'node_modules/**'] },
 
   js.configs.recommended,
-  ...pluginVue.configs['flat/recommended'],
+  // vue2-*, not the default flat/recommended: that preset carries Vue 3
+  // rules and flags correct Vue 2 code (e.g. beforeDestroy) as deprecated.
+  ...pluginVue.configs['flat/vue2-recommended'],
 
   // Application code runs in the browser.
   {
@@ -20,6 +22,8 @@ export default [
         document: 'readonly',
         console: 'readonly',
         localStorage: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
       },
     },
   },
